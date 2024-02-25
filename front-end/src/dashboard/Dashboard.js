@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import { listReservations, listTables, finishTable } from "../utils/api";
+import { listReservations, listTables, finishTable, updateReservationStatus } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { today } from "../utils/date-time";
 
@@ -16,22 +16,27 @@ function Dashboard() {
     useEffect(() => {
         const abortController = new AbortController();
         setError(null);
-
+    
         async function fetchData() {
             try {
                 const loadedReservations = await listReservations({ date }, abortController.signal);
-                setReservations(loadedReservations.sort((a, b) => a.reservation_time.localeCompare(b.reservation_time)));
+                
+                // Filter out reservations with a status of "canceled"
+                const activeReservations = loadedReservations.filter(reservation => reservation.status !== "cancelled");
+    
+                setReservations(activeReservations.sort((a, b) => a.reservation_time.localeCompare(b.reservation_time)));
                 const loadedTables = await listTables(abortController.signal);
                 setTables(loadedTables);
             } catch (error) {
                 setError(error);
             }
         }
-
+    
         fetchData();
-
+    
         return () => abortController.abort();
     }, [date]);
+    
 
     const navigateTo = (newDate) => {
         history.push(`/dashboard?date=${newDate}`);
@@ -71,17 +76,19 @@ function Dashboard() {
 
 
   const cancelReservationHandler = async (reservationId) => {
-    // Confirmation dialog and API call to cancel the reservation
-    const abortController = new AbortController();
-    try {
-        const loadedReservations = await listReservations({ date }, abortController.signal);
-        setReservations(loadedReservations.sort((a, b) => a.reservation_time.localeCompare(b.reservation_time)));
-        // Additional logic for refreshing tables or other parts of the dashboard
-    } catch (error) {
-        setError(error);
-    }
+    if (window.confirm("Do you want to cancel this reservation? This cannot be undone.")) {
+        try {
+            await updateReservationStatus(reservationId, "cancelled");
 
-    return () => abortController.abort();
+            // Filter out the canceled reservation from the state
+            setReservations(currentReservations =>
+                currentReservations.filter(reservation => reservation.reservation_id !== reservationId)
+            );
+        } catch (error) {
+            console.error(error);
+            setError(error);
+        }
+    }
 };
 
   
