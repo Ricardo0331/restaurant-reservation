@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #0D1A26; /* Deep Navy Blue for navbar background */
+  }
+  
+  .navbar-brand {
+    color: #F2D230; /* Bright Yellow for brand text */
+  }
+  
+  .nav-link {
+    color: #F2BB77; /* Light Orange for nav links */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+    color: #BF1111; /* Bright Red for hover and focus states */
+    text-decoration: none;
+  }
+  
+  .sidebar-divider {
+    border-top: 1px solid #F2D230; /* Bright Yellow for divider */
+  }
+  
+
+  @media (max-width: 768px) {
+    .navbar-nav {
+      margin-top: 20px;
+    }
+  }

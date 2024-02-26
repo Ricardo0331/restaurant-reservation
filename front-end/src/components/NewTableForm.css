@@ -1,0 +1,44 @@
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    background-color: #0D1A26; /* Deep Navy Blue for input background */
+    color: #F2D230; /* Bright Yellow for input text */
+    border-color: #F2BB77; /* Light Orange for input border */
+  }
+  
+  .form-control:focus {
+    border-color: #BF1111; /* Bright Red for input focus border */
+    box-shadow: 0 0 0 0.2rem rgba(191, 17, 17, 0.25);
+  }
+  
+  .btn-primary {
+    background-color: #733A26; /* Dark Brown for primary button */
+    border-color: #733A26;
+  }
+  
+  .btn-primary:hover {
+    background-color: #BF1111; /* Bright Red for hover state */
+  }
+  
+  .btn-secondary {
+    background-color: #393a44; /* Dark Grey for secondary button */
+    border-color: #393a44;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #F2BB77; /* Light Orange for hover state */
+  }
+
+
+  @media (max-width: 768px) {
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    .btn {
+      width: 100%; /* Full width buttons on smaller screens */
+      margin-bottom: 10px; /* Space between buttons when stacked */
+    }
+  }

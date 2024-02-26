@@ -1,0 +1,55 @@
+/* Style the form elements for consistency and readability */
+.form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    background-color: #0D1A26; /* Deep Navy Blue for input background */
+    color: #F2D230; /* Bright Yellow for input text */
+    border: 1px solid #F2BB77; /* Light Orange for input border */
+  }
+  
+  .form-control:focus {
+    border-color: #BF1111; /* Bright Red for focus state */
+    box-shadow: 0 0 0 0.2rem rgba(191, 17, 17, 0.25); /* Slight red glow */
+  }
+  
+  /* Style labels for better visibility */
+  label {
+    color: #F2D230; /* Bright Yellow */
+  }
+  
+  /* Customize buttons */
+  .btn-primary {
+    background-color: #733A26; /* Dark Brown */
+    border-color: #733A26;
+  }
+  
+  .btn-primary:hover {
+    background-color: #BF1111; /* Bright Red */
+    border-color: #BF1111;
+  }
+  
+  .btn-secondary {
+    background-color: #F2BB77; /* Light Orange */
+    border-color: #F2BB77;
+  }
+  
+  /* Style the error alert for better visibility */
+  .alert-danger {
+    background-color: #BF1111; /* Bright Red */
+    color: #FFFFFF; /* White text */
+  }
+  
+
+
+@media (max-width: 768px) {
+    .form-group {
+      margin-bottom: 15px; /* Increase space between form fields */
+    }
+  
+    .btn {
+      width: 100%; /* Make buttons full width on smaller screens */
+    }
+  }
+  

@@ -8,6 +8,7 @@ import {
 } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { today } from "../utils/date-time";
+import "./Dashboard.css"
 
 function Dashboard() {
   const [reservations, setReservations] = useState([]);

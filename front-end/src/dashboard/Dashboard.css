@@ -1,0 +1,48 @@
+/* General dashboard styling */
+main {
+    color: #F2D230; /* Bright Yellow for text */
+    padding: 20px;
+  }
+  
+  /* Styling for reservation and table cards */
+  .reservation-card, .table-card {
+    background-color: #0D1A26; /* Deep Navy Blue for card background */
+    color: #F2D230; /* Bright Yellow for text */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Styling for buttons within cards */
+  .btn-primary, .btn-secondary, .btn-danger {
+    margin-right: 5px;
+  }
+  
+  /* Date navigation styling */
+  .date-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Styling for the date navigation buttons */
+  .date-navigation .btn {
+    background-color: #733A26; /* Dark Brown */
+    color: #F2D230; /* Bright Yellow */
+  }
+  
+  .date-navigation .btn:hover {
+    background-color: #BF1111; /* Bright Red */
+  }
+  
+
+  @media (max-width: 768px) {
+    .reservation-card, .table-card {
+      font-size: smaller; /* Adjust font size for smaller screens */
+    }
+  
+    .btn {
+      width: 100%; /* Make buttons full width on smaller screens */
+      margin-bottom: 10px; /* Add space between stacked buttons */
+    }
+  }

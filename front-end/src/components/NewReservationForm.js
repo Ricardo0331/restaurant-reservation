@@ -5,7 +5,7 @@ import {
   readReservation,
   updateReservation,
 } from "../utils/api";
-//import { today } from "../utils/date-time";
+import './NewReservationForm.css';
 
 // Initial state for a new reservation
 const initialReservation = {

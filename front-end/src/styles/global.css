@@ -1,0 +1,34 @@
+body {
+    background-color: #0D1A26; /* Deep Navy Blue */
+    color: #F2D230; /* Bright Yellow */
+    font-family: 'Open Sans', sans-serif; 
+  }
+  
+  a {
+    color: #F2BB77; /* Light Orange */
+  }
+  
+  a:hover {
+    color: #BF1111; /* Bright Red */
+  }
+  
+  .btn-primary {
+    background-color: #733A26; /* Dark Brown */
+    border-color: #733A26;
+  }
+  
+  .btn-primary:hover {
+    background-color: #BF1111; /* Bright Red */
+    border-color: #BF1111;
+  }
+  
+  body {
+    padding: 0 10px; /* Add some padding on smaller screens */
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding: 0 20px; /* Increase padding for smaller screens */
+    }
+  }
+  

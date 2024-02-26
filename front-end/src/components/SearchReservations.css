@@ -1,0 +1,52 @@
+/* Styling for the search input */
+.search-input {
+    background-color: #0D1A26; /* Deep Navy Blue */
+    color: #F2D230; /* Bright Yellow */
+    border: 1px solid #F2BB77; /* Light Orange */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Styling for the search button */
+  .search-button {
+    background-color: #733A26; /* Dark Brown */
+    color: #FFFFFF;
+    border-color: #733A26;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #BF1111; /* Bright Red */
+    border-color: #BF1111;
+  }
+  
+  /* Styling for each reservation card */
+  .reservation-card {
+    background-color: #393a44; /* Dark Grey */
+    color: #F2D230; /* Bright Yellow */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Styling for buttons within reservation cards */
+  .reservation-card .btn-secondary {
+    margin-right: 10px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .search-input,
+    .search-button {
+      width: 100%; /* Full width on smaller screens */
+      margin-bottom: 15px; /* Space between input and button */
+    }
+  
+    .reservation-card {
+      font-size: smaller; /* Adjust font size for readability */
+    }
+  }

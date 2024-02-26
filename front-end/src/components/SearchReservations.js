@@ -3,6 +3,8 @@ import {
   listReservationsByPhoneNumber,
   updateReservationStatus,
 } from "../utils/api"; // Ensure this function is implemented in api.js
+import './SearchReservations.css'; 
+
 
 function SearchReservations() {
   const [phoneNumber, setPhoneNumber] = useState("");
