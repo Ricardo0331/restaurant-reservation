@@ -3,12 +3,10 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "../dashboard/Dashboard";
 import NotFound from "./NotFound";
 import NewReservationForm from "../components/NewReservationForm";
-import NewTableForm from "../components/NewTableForm"; 
-import SeatReservation from "../components/SeatReservation"; 
+import NewTableForm from "../components/NewTableForm";
+import SeatReservation from "../components/SeatReservation";
 import { today } from "../utils/date-time";
-import SearchReservations from '../components/SearchReservations';
-
- 
+import SearchReservations from "../components/SearchReservations";
 
 function Routes() {
   return (
@@ -23,16 +21,16 @@ function Routes() {
         <NewReservationForm />
       </Route>
       <Route path="/tables/new">
-        <NewTableForm /> 
+        <NewTableForm />
       </Route>
       <Route path="/reservations/:reservation_id/seat">
-        <SeatReservation /> 
+        <SeatReservation />
       </Route>
       <Route path="/search">
-    <SearchReservations />
-</Route>
-<Route path="/reservations/:reservation_id/edit">
-        <NewReservationForm /> 
+        <SearchReservations />
+      </Route>
+      <Route path="/reservations/:reservation_id/edit">
+        <NewReservationForm />
       </Route>
       <Route>
         <NotFound />
