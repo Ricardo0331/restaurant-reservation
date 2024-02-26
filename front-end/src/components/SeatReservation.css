@@ -1,43 +1,58 @@
-/* Styling for the form */
-.seat-reservation-form {
-    max-width: 500px; /* Set a max-width for the form */
-    margin: auto; /* Center the form */
-    padding: 20px;
-    background-color: #0D1A26; /* Deep Navy Blue for form background */
-    color: #F2D230; /* Bright Yellow for text */
-    border-radius: 5px;
+.container {
+    max-width: 600px; /* Set a max-width for better readability */
+    margin: 40px auto; /* Center the form vertically and horizontally */
+    padding: 20px; /* Add padding for internal spacing */
+    background-color: #ffffff; /* Set a white background for the form area */
+    border-radius: 8px; /* Round the corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a light shadow for depth */
   }
   
-  /* Styling for the select dropdown */
+  .form-group {
+    margin-bottom: 20px; /* Space out elements within the form */
+  }
+  
+  label {
+    display: block; /* Ensure the label takes up its own line */
+    margin-bottom: 0.5rem; /* Add a small margin below the label for spacing */
+    font-weight: bold; /* Bold the label for clear distinction */
+    color: #333; /* Use a darker color for better readability */
+  }
+  
   .form-control {
-    background-color: #393a44; /* Dark Grey for input background */
-    color: #F2D230; /* Bright Yellow for input text */
-    border-color: #F2BB77; /* Light Orange for input border */
+    width: 100%; /* Ensure the select fills the container width */
+    padding: 0.375rem 0.75rem; /* Padding inside the select for better readability */
+    border-radius: 0.25rem; /* Slightly round the corners of the select */
+    border: 1px solid #ced4da; /* Subtle border for the select */
   }
   
-  .form-control:focus {
-    border-color: #BF1111; /* Bright Red for input focus border */
-    box-shadow: 0 0 0 0.2rem rgba(191, 17, 17, 0.25);
+  .btn {
+    padding: 10px 15px; /* Padding for buttons to make them easier to click */
+    border-radius: 0.25rem; /* Slightly round the button corners */
   }
   
-  /* Styling for buttons */
   .btn-primary {
-    background-color: #733A26; /* Dark Brown for primary button */
-    border-color: #733A26;
-  }
-  
-  .btn-primary:hover {
-    background-color: #BF1111; /* Bright Red for hover state */
+    background-color: #007bff; 
+    border-color: #007bff; /* Match the border color to the background */
   }
   
   .btn-secondary {
-    background-color: #393a44; /* Dark Grey for secondary button */
-    border-color: #393a44;
+    background-color: #6c757d; /* Use the secondary color for the cancel button */
+    border-color: #6c757d; /* Match the border color to the background */
   }
   
-  .btn-secondary:hover {
-    background-color: #F2BB77; /* Light Orange for hover state */
+  .d-flex {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out buttons evenly */
   }
   
-
+  @media (max-width: 576px) {
+    .container {
+      margin: 20px auto; /* Reduce vertical margin on smaller screens */
+      padding: 15px; /* Reduce padding to conserve space */
+    }
+  
+    .btn {
+      width: 48%; /* Adjust button width to ensure they fit on small screens */
+    }
+  }
   

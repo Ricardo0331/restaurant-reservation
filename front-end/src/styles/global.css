@@ -1,34 +1,64 @@
+/* Base Styles */
 body {
-    background-color: #0D1A26; /* Deep Navy Blue */
-    color: #F2D230; /* Bright Yellow */
-    font-family: 'Open Sans', sans-serif; 
+  background-color: #f8f9fa; /* A light background for the overall application */
+  color: #212529; 
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* A clean, modern sans-serif font */
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #343a40; /* Slightly darker than the default text color for emphasis */
+  margin-top: 1rem; /* Ensure consistent spacing above headings */
+  margin-bottom: 0.5rem; /* below */
+}
+
+p {
+  line-height: 1.5; /* Improve readability with increased line height */
+}
+
+a {
+  color: #007bff; 
+  text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+  color: #0056b3; /* Darker shade on hover for feedback */
+}
+
+/* Buttons */
+.btn {
+  border-radius: 0.25rem; /* Ensure buttons have rounded corners */
+}
+
+/* Forms */
+input, select, textarea {
+  background-color: #fff; /* Ensure form fields have a white background */
+  border: 1px solid #ced4da; 
+  border-radius: 0.25rem; /* rounded corners */
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center; /* Center-align text utility class */
+}
+
+.mt-3, .my-3 {
+  margin-top: 1rem !important; /* Consistent vertical spacing */
+  margin-bottom: 1rem !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem; /* Smaller font size for headings on small screens */
   }
-  
-  a {
-    color: #F2BB77; /* Light Orange */
-  }
-  
-  a:hover {
-    color: #BF1111; /* Bright Red */
-  }
-  
-  .btn-primary {
-    background-color: #733A26; /* Dark Brown */
-    border-color: #733A26;
-  }
-  
-  .btn-primary:hover {
-    background-color: #BF1111; /* Bright Red */
-    border-color: #BF1111;
-  }
-  
-  body {
-    padding: 0 10px; /* Add some padding on smaller screens */
-  }
-  
-  @media (max-width: 768px) {
-    body {
-      padding: 0 20px; /* Increase padding for smaller screens */
-    }
-  }
-  
+}
+
+/* Custom Components */
+.card-custom {
+  background-color: #fff; /* Custom card background */
+  border: none; /* Remove border */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
+}
+
+

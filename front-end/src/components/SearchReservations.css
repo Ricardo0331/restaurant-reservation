@@ -1,52 +1,70 @@
-/* Styling for the search input */
-.search-input {
-    background-color: #0D1A26; /* Deep Navy Blue */
-    color: #F2D230; /* Bright Yellow */
-    border: 1px solid #F2BB77; /* Light Orange */
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 100%;
+.container {
+    max-width: 800px; /* Optimize container width for better readability */
+    margin: 20px auto; /* Center the container with vertical margin */
+    padding: 15px; /* Add padding inside the container for spacing */
+    background-color: #f9f9f9; /* Light background to distinguish the area */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   }
   
-  /* Styling for the search button */
-  .search-button {
-    background-color: #733A26; /* Dark Brown */
-    color: #FFFFFF;
-    border-color: #733A26;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  .form-inline {
+    justify-content: center; /* Center the form elements */
   }
   
-  .search-button:hover {
-    background-color: #BF1111; /* Bright Red */
-    border-color: #BF1111;
+  .form-control {
+    width: auto; /* Allow the input to size according to its content */
+    margin-right: 10px; /* Space between the input and the button */
   }
   
-  /* Styling for each reservation card */
-  .reservation-card {
-    background-color: #393a44; /* Dark Grey */
-    color: #F2D230; /* Bright Yellow */
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+  .btn-primary {
+    padding: 8px 20px; /* padding for clickable area */
+    background-color: #007bff; 
+    border: none; /* Remove border */
   }
   
-  /* Styling for buttons within reservation cards */
-  .reservation-card .btn-secondary {
-    margin-right: 10px;
+  .alert-danger {
+    text-align: center; /* Center-align error messages */
+    margin-top: 20px; /* Space above the error message */
   }
   
-
-  @media (max-width: 768px) {
-    .search-input,
-    .search-button {
-      width: 100%; /* Full width on smaller screens */
-      margin-bottom: 15px; /* Space between input and button */
+  .reservation-results .card {
+    margin-bottom: 20px; /* Space between reservation cards */
+  }
+  
+  .card-body {
+    padding: 20px; /* Padding inside cards for spacing */
+  }
+  
+  .card-title {
+    margin-bottom: 15px; /* Space below the title */
+    color: #007bff; 
+  }
+  
+  .card-text {
+    font-size: 0.95rem; /* Slightly smaller font size for details */
+    margin-bottom: 10px; /* Space between text lines */
+  }
+  
+  .badge-secondary {
+    background-color: #6c757d; 
+  }
+  
+  .btn-secondary, .btn-danger {
+    margin-top: 10px; /* Space above buttons */
+    margin-right: 5px; /* Space between buttons */
+  }
+  
+  @media (max-width: 576px) {
+    .form-inline input {
+      margin-bottom: 10px; /* Space below the input on small screens */
     }
   
-    .reservation-card {
-      font-size: smaller; /* Adjust font size for readability */
+    .btn {
+      width: 100%; /* Full-width buttons for easier interaction on mobile */
+    }
+  
+    .reservation-results .card {
+      padding: 0; /* Reduce padding on small screens for space efficiency */
     }
   }
+  

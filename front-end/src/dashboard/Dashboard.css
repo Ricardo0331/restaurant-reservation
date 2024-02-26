@@ -1,48 +1,65 @@
-/* General dashboard styling */
-main {
-    color: #F2D230; /* Bright Yellow for text */
-    padding: 20px;
+/* Dashboard.css */
+.container {
+    max-width: 1200px; /* Limit the maximum width for larger screens */
   }
   
-  /* Styling for reservation and table cards */
-  .reservation-card, .table-card {
-    background-color: #0D1A26; /* Deep Navy Blue for card background */
-    color: #F2D230; /* Bright Yellow for text */
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+  h1, h4 {
+    text-align: center; /* Center-align header texts */
+    color: #333; /* Use a dark shade for better readability */
   }
   
-  /* Styling for buttons within cards */
-  .btn-primary, .btn-secondary, .btn-danger {
-    margin-right: 5px;
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadows to cards for depth */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
   }
   
-  /* Date navigation styling */
+  .card:hover {
+    transform: scale(1.02); /* Slightly scale up cards on hover for an interactive feel */
+  }
+  
+  .card-body {
+    padding: 20px; /* Increase padding for more breathing space inside cards */
+  }
+  
+  .card-title {
+    color: #007bff; 
+    margin-bottom: 15px; /* Add more space below the title */
+  }
+  
+  .card-text {
+    font-size: 0.95rem; /* Slightly reduce the font size */
+    margin-bottom: 10px; /* Uniform spacing below texts */
+  }
+  
+  .badge {
+    font-size: 0.85rem; /* badge font size */
+  }
+  
+  .btn {
+    margin: 5px; /* Ensure buttons don’t stick together */
+  }
+  
   .date-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: center; /* Center-align the date navigation buttons */
+    padding: 20px 0; /* Add padding above and below the button group */
   }
   
-  /* Styling for the date navigation buttons */
-  .date-navigation .btn {
-    background-color: #733A26; /* Dark Brown */
-    color: #F2D230; /* Bright Yellow */
+  .btn-group .btn {
+    margin: 0 10px; /* Space out buttons within the group */
   }
   
-  .date-navigation .btn:hover {
-    background-color: #BF1111; /* Bright Red */
-  }
-  
-
   @media (max-width: 768px) {
-    .reservation-card, .table-card {
-      font-size: smaller; /* Adjust font size for smaller screens */
+    .card-body {
+      padding: 15px; /* Reduce padding on smaller screens for space efficiency */
     }
   
-    .btn {
-      width: 100%; /* Make buttons full width on smaller screens */
-      margin-bottom: 10px; /* Add space between stacked buttons */
+    .date-navigation {
+      flex-direction: column; /* Stack the buttons vertically on smaller screens */
+    }
+  
+    .btn-group .btn {
+      width: 100%; /* Full-width buttons for easier interaction on mobile devices */
+      margin-bottom: 10px; /* Space between stacked buttons */
     }
   }
+  

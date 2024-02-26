@@ -1,55 +1,75 @@
-/* Style the form elements for consistency and readability */
-.form-group {
-    margin-bottom: 15px;
+.container {
+    max-width: 800px; /* Optimize the form width for readability */
+    margin: auto; /* Center the form in the page */
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background to distinguish the form area */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  h1 {
+    text-align: center; /* Center-align the form title */
+    margin-bottom: 30px; /* Spacious margin for a clear separation from the form fields */
+    color: #333; /* Dark color for contrast and emphasis */
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Consistent spacing between form fields */
   }
   
   .form-control {
-    background-color: #0D1A26; /* Deep Navy Blue for input background */
-    color: #F2D230; /* Bright Yellow for input text */
-    border: 1px solid #F2BB77; /* Light Orange for input border */
+    border-radius: 5px; /* Slightly rounded edges for input fields */
+    border: 1px solid #ced4da; /* Subtle border color */
   }
   
-  .form-control:focus {
-    border-color: #BF1111; /* Bright Red for focus state */
-    box-shadow: 0 0 0 0.2rem rgba(191, 17, 17, 0.25); /* Slight red glow */
-  }
-  
-  /* Style labels for better visibility */
   label {
-    color: #F2D230; /* Bright Yellow */
+    font-weight: 600; /* Slightly bold labels for clear field identification */
+    color: #495057; /* Dark grey for readability */
   }
   
-  /* Customize buttons */
+  .input-group-text {
+    background-color: #e9ecef; /* Light background for input group text for contrast */
+    border-radius: 5px; /* Align with input field rounding */
+  }
+  
+  .btn-primary, .btn-secondary {
+    font-size: 1rem; /* Optimal button font size for readability */
+    border-radius: 5px; /* Rounded buttons */
+    padding: 10px 15px; /* Comfortable padding for interaction */
+    margin-right: 10px; /* Space between buttons */
+  }
+  
   .btn-primary {
-    background-color: #733A26; /* Dark Brown */
-    border-color: #733A26;
-  }
-  
-  .btn-primary:hover {
-    background-color: #BF1111; /* Bright Red */
-    border-color: #BF1111;
+    background-color: #007bff; 
+    border-color: #007bff;
   }
   
   .btn-secondary {
-    background-color: #F2BB77; /* Light Orange */
-    border-color: #F2BB77;
+    background-color: #6c757d; 
+    border-color: #6c757d;
   }
   
-  /* Style the error alert for better visibility */
   .alert-danger {
-    background-color: #BF1111; /* Bright Red */
-    color: #FFFFFF; /* White text */
+    font-size: 0.9rem; /* Slightly smaller font for error messages to not overpower the form */
+    margin-top: 20px; /* Separate the error message from the form */
   }
   
-
-
-@media (max-width: 768px) {
-    .form-group {
-      margin-bottom: 15px; /* Increase space between form fields */
+  @media (max-width: 576px) {
+    .container {
+      padding: 15px; /* Slightly less padding on very small screens for space efficiency */
     }
   
-    .btn {
-      width: 100%; /* Make buttons full width on smaller screens */
+    .form-row {
+      flex-direction: column; /* Stack form fields vertically on small screens */
+    }
+  
+    .form-group {
+      margin-bottom: 15px; /* Slightly less space between fields on small screens */
+    }
+  
+    .btn-primary, .btn-secondary {
+      width: 100%; /* Full-width buttons for easier tapping on small screens */
+      margin-bottom: 10px; /* Space between stacked buttons */
     }
   }
   
