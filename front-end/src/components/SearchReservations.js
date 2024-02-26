@@ -3,8 +3,7 @@ import {
   listReservationsByPhoneNumber,
   updateReservationStatus,
 } from "../utils/api"; // Ensure this function is implemented in api.js
-import './SearchReservations.css'; 
-
+import "./SearchReservations.css";
 
 function SearchReservations() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -64,37 +63,65 @@ function SearchReservations() {
       <form onSubmit={handleSubmit} className="form-inline mb-3">
         <input
           type="tel"
-          className="form-control mr-2"
+          className="form-control mr-2 flex-grow-1"
           name="mobile_number"
           placeholder="Enter a customer's phone number"
           onChange={handleInputChange}
           value={phoneNumber}
         />
-        <button type="submit" className="btn btn-primary">Find</button>
+        <button type="submit" className="btn btn-primary">
+          Find
+        </button>
       </form>
-  
-      {searchError && <div className="alert alert-danger" role="alert">{searchError.message}</div>}
-  
-      {searchSubmitted && reservations.length === 0 && <p>No reservations found.</p>}
-  
+
+      {searchError && (
+        <div className="alert alert-danger" role="alert">
+          {searchError.message}
+        </div>
+      )}
+
+      {searchSubmitted && reservations.length === 0 && (
+        <p>No reservations found.</p>
+      )}
+
       <div className="reservation-results">
         {reservations.map((reservation, index) => (
           <div key={index} className="card mb-2">
             <div className="card-body">
-              <h5 className="card-title">{reservation.first_name} {reservation.last_name}</h5>
-              <p className="card-text">Mobile Number: {reservation.mobile_number}</p>
-              <p className="card-text">Date of Reservation: {reservation.reservation_date}</p>
-              <p className="card-text">Time of Reservation: {reservation.reservation_time}</p>
-              <p className="card-text">Number of People: {reservation.people}</p>
+              <h5 className="card-title">
+                {reservation.first_name} {reservation.last_name}
+              </h5>
               <p className="card-text">
-                Status: <span className="badge badge-secondary">{reservation.status}</span>
+                Mobile Number: {reservation.mobile_number}
+              </p>
+              <p className="card-text">
+                Date of Reservation: {reservation.reservation_date}
+              </p>
+              <p className="card-text">
+                Time of Reservation: {reservation.reservation_time}
+              </p>
+              <p className="card-text">
+                Number of People: {reservation.people}
+              </p>
+              <p className="card-text">
+                Status:{" "}
+                <span className="badge badge-secondary">
+                  {reservation.status}
+                </span>
               </p>
               {reservation.status === "booked" && (
                 <>
-                  <a href={`/reservations/${reservation.reservation_id}/edit`} className="btn btn-secondary mr-2">Edit</a>
+                  <a
+                    href={`/reservations/${reservation.reservation_id}/edit`}
+                    className="btn btn-secondary mr-2"
+                  >
+                    Edit
+                  </a>
                   <button
                     className="btn btn-danger"
-                    onClick={() => cancelReservationHandler(reservation.reservation_id)}
+                    onClick={() =>
+                      cancelReservationHandler(reservation.reservation_id)
+                    }
                   >
                     Cancel
                   </button>
@@ -106,6 +133,6 @@ function SearchReservations() {
       </div>
     </div>
   );
-  }
+}
 
 export default SearchReservations;
