@@ -60,56 +60,52 @@ function SearchReservations() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="container mt-3">
+      <form onSubmit={handleSubmit} className="form-inline mb-3">
         <input
+          type="tel"
+          className="form-control mr-2"
           name="mobile_number"
           placeholder="Enter a customer's phone number"
           onChange={handleInputChange}
           value={phoneNumber}
         />
-        <button type="submit">Find</button>
+        <button type="submit" className="btn btn-primary">Find</button>
       </form>
-
-      {searchError && <div>Error: {searchError.message}</div>}
-
-      {searchSubmitted && reservations.length === 0 && (
-        <p>No reservations found.</p>
-      )}
-
-      {reservations.map((reservation, index) => (
-        <div key={index} className="reservation-card">
-          <p>First Name: {reservation.first_name}</p>
-          <p>Last Name: {reservation.last_name}</p>
-          <p>Mobile Number: {reservation.mobile_number}</p>
-          <p>Date of Reservation: {reservation.reservation_date}</p>
-          <p>Time of Reservation: {reservation.reservation_time}</p>
-          <p>Number of People: {reservation.people}</p>
-          <p>
-            Status:{" "}
-            <span data-reservation-id-status={reservation.reservation_id}>
-              {reservation.status}
-            </span>
-          </p>
-          {reservation.status === "booked" && (
-            <a
-              href={`/reservations/${reservation.reservation_id}/edit`}
-              className="btn btn-secondary"
-            >
-              Edit
-            </a>
-          )}
-          <button
-            data-reservation-id-cancel={reservation.reservation_id}
-            className="btn btn-danger"
-            onClick={() => cancelReservationHandler(reservation.reservation_id)}
-          >
-            Cancel
-          </button>
-        </div>
-      ))}
+  
+      {searchError && <div className="alert alert-danger" role="alert">{searchError.message}</div>}
+  
+      {searchSubmitted && reservations.length === 0 && <p>No reservations found.</p>}
+  
+      <div className="reservation-results">
+        {reservations.map((reservation, index) => (
+          <div key={index} className="card mb-2">
+            <div className="card-body">
+              <h5 className="card-title">{reservation.first_name} {reservation.last_name}</h5>
+              <p className="card-text">Mobile Number: {reservation.mobile_number}</p>
+              <p className="card-text">Date of Reservation: {reservation.reservation_date}</p>
+              <p className="card-text">Time of Reservation: {reservation.reservation_time}</p>
+              <p className="card-text">Number of People: {reservation.people}</p>
+              <p className="card-text">
+                Status: <span className="badge badge-secondary">{reservation.status}</span>
+              </p>
+              {reservation.status === "booked" && (
+                <>
+                  <a href={`/reservations/${reservation.reservation_id}/edit`} className="btn btn-secondary mr-2">Edit</a>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => cancelReservationHandler(reservation.reservation_id)}
+                  >
+                    Cancel
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+  }
 
 export default SearchReservations;

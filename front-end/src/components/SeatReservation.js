@@ -35,8 +35,9 @@ function SeatReservation() {
     history.goBack();
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
+return (
+  <form onSubmit={handleSubmit} className="container mt-3">
+    <div className="form-group">
       <label htmlFor="table_id">Choose a table:</label>
       <select
         id="table_id"
@@ -53,18 +54,13 @@ function SeatReservation() {
           </option>
         ))}
       </select>
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
-      <button
-        type="button"
-        className="btn btn-secondary"
-        onClick={handleCancel}
-      >
-        Cancel
-      </button>
-    </form>
-  );
+    </div>
+    <div className="form-group d-flex justify-content-between mt-4">
+      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
+    </div>
+  </form>
+);
 }
 
 export default SeatReservation;

@@ -31,45 +31,39 @@ function NewTableForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container mt-3">
       <div className="form-group">
-        <label htmlFor="table_name">Table Name:</label>
+        <label htmlFor="table_name">Table Name</label>
         <input
-          name="table_name"
-          id="table_name"
           type="text"
-          minLength="2"
-          required
+          className="form-control"
+          id="table_name"
+          name="table_name"
           value={formData.table_name}
           onChange={handleChange}
-          className="form-control"
+          minLength="2"
+          required
         />
       </div>
       <div className="form-group">
-        <label htmlFor="capacity">Capacity:</label>
+        <label htmlFor="capacity">Capacity</label>
         <input
-          name="capacity"
-          id="capacity"
           type="number"
-          min="1"
-          required
+          className="form-control"
+          id="capacity"
+          name="capacity"
           value={formData.capacity}
           onChange={handleChange}
-          className="form-control"
+          min="1"
+          required
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
-      <button
-        type="button"
-        className="btn btn-secondary"
-        onClick={handleCancel}
-      >
-        Cancel
-      </button>
+      <div className="form-group text-center">
+        <button type="submit" className="btn btn-primary mr-2">Submit</button>
+        <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
+      </div>
     </form>
   );
-}
+  }
 
 export default NewTableForm;

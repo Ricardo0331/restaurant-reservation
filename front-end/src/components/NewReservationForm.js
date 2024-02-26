@@ -137,110 +137,48 @@ function NewReservationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="first_name">First Name:</label>
-        <input
-          className="form-control"
-          id="first_name"
-          type="text"
-          name="first_name"
-          value={formData.first_name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="last_name">Last Name:</label>
-        <input
-          className="form-control"
-          id="last_name"
-          type="text"
-          name="last_name"
-          value={formData.last_name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="mobile_number">Mobile Number:</label>
-        <input
-          className="form-control"
-          id="mobile_number"
-          type="tel"
-          name="mobile_number"
-          value={formData.mobile_number}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="reservation_date">Date of Reservation:</label>
-        <input
-          className="form-control"
-          id="reservation_date"
-          type="date"
-          name="reservation_date"
-          value={formData.reservation_date}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="reservation_time">Time of Reservation:</label>
-        <input
-          className="form-control"
-          id="reservation_time"
-          type="time"
-          name="reservation_time"
-          value={formData.reservation_time}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="people">Number of People:</label>
-        <input
-          className="form-control"
-          id="people"
-          type="number"
-          name="people"
-          value={formData.people}
-          onChange={handleChange}
-          min="1"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={handleCancel}
-        >
-          Cancel
-        </button>
-      </div>
-
-      {/* Displaying errors */}
-      {errors.length > 0 && (
-        <div className="alert alert-danger" role="alert">
-          <ul>
-            {errors.map((error, index) => (
-              <li key={index}>{error.message}</li>
-            ))}
-          </ul>
+    <div className="container">
+      <h1>{isEditMode ? "Edit" : "New"} Reservation</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label htmlFor="first_name">First Name</label>
+            <input type="text" className="form-control" id="first_name" name="first_name" value={formData.first_name} onChange={handleChange} required />
+          </div>
+          <div className="form-group col-md-6">
+            <label htmlFor="last_name">Last Name</label>
+            <input type="text" className="form-control" id="last_name" name="last_name" value={formData.last_name} onChange={handleChange} required />
+          </div>
         </div>
-      )}
-    </form>
+
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label htmlFor="mobile_number">Mobile Number</label>
+            <input type="tel" className="form-control" id="mobile_number" name="mobile_number" value={formData.mobile_number} onChange={handleChange} required />
+          </div>
+          <div className="form-group col-md-3">
+            <label htmlFor="reservation_date">Date</label>
+            <input type="date" className="form-control" id="reservation_date" name="reservation_date" value={formData.reservation_date} onChange={handleChange} required />
+          </div>
+          <div className="form-group col-md-3">
+            <label htmlFor="reservation_time">Time</label>
+            <input type="time" className="form-control" id="reservation_time" name="reservation_time" value={formData.reservation_time} onChange={handleChange} required />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="people">Number of People</label>
+          <input type="number" className="form-control" id="people" name="people" value={formData.people} min="1" onChange={handleChange} required />
+        </div>
+
+        {/* Error display */}
+        {errors.length > 0 && <div className="alert alert-danger" role="alert">{errors.map((error, index) => <p key={index}>{error.message}</p>)}</div>}
+
+        {/* Form buttons */}
+        <button type="submit" className="btn btn-primary">{isEditMode ? "Update" : "Submit"}</button>
+        <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
+      </form>
+    </div>
   );
 }
 

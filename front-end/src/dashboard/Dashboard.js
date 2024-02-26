@@ -48,7 +48,6 @@ function Dashboard() {
     }
 
     fetchData();
-
     return () => abortController.abort();
   }, [date]);
 
@@ -116,83 +115,55 @@ function Dashboard() {
   };
 
   return (
-    <main>
-      <h1>Dashboard</h1>
-      <div className="d-md-flex mb-3">
-        <h4 className="mb-0">Reservations for {date}</h4>
-      </div>
+    <main className="container">
+      <h1 className="my-3">Dashboard</h1>
       <ErrorAlert error={error} />
-      {reservations.map((reservation, index) => (
-        <div key={index} className="reservation-card">
-          <p>First Name: {reservation.first_name}</p>
-          <p>Last Name: {reservation.last_name}</p>
-          <p>Mobile Number: {reservation.mobile_number}</p>
-          <p>Date of Reservation: {reservation.reservation_date}</p>
-          <p>Time of Reservation: {reservation.reservation_time}</p>
-          <p>Number of People: {reservation.people}</p>
-          <p>
-            Status:{" "}
-            <span data-reservation-id-status={reservation.reservation_id}>
-              {reservation.status}
-            </span>
-          </p>
-          {reservation.status === "booked" && (
-            <>
-              <a
-                href={`/reservations/${reservation.reservation_id}/seat`}
-                className="btn btn-primary"
-              >
-                Seat
-              </a>
-              <a
-                href={`/reservations/${reservation.reservation_id}/edit`}
-                className="btn btn-secondary"
-              >
-                Edit
-              </a>
-              <button
-                data-reservation-id-cancel={reservation.reservation_id}
-                className="btn btn-danger"
-                onClick={() => cancelReservationHandler(reservation.reservation_id)}
-              >
-                Cancel
-              </button>
-            </>
-          )}
+      <div className="row">
+        <div className="col">
+          <h4>Reservations for {date}</h4>
+          {reservations.map((reservation, index) => (
+            <div key={index} className="card my-2">
+              <div className="card-body">
+                <h5 className="card-title">{reservation.first_name} {reservation.last_name}</h5>
+                <p className="card-text">Mobile: {reservation.mobile_number}</p>
+                <p className="card-text">Date: {reservation.reservation_date}</p>
+                <p className="card-text">Time: {reservation.reservation_time}</p>
+                <p className="card-text">Party Size: {reservation.people}</p>
+                <p className="card-text">Status: <span className="badge badge-secondary">{reservation.status}</span></p>
+                {reservation.status === "booked" && (
+                  <>
+                    <a href={`/reservations/${reservation.reservation_id}/seat`} className="btn btn-primary mr-2">Seat</a>
+                    <a href={`/reservations/${reservation.reservation_id}/edit`} className="btn btn-secondary mr-2">Edit</a>
+                    <button className="btn btn-danger" onClick={() => cancelReservationHandler(reservation.reservation_id)}>Cancel</button>
+                  </>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      <h2>Tables</h2>
-      {tables.map((table, index) => (
-        <div key={index} className="table-card">
-          <p>Table Name: {table.table_name}</p>
-          <p>Capacity: {table.capacity}</p>
-          <p data-table-id-status={table.table_id}>
-            {table.reservation_id ? "Occupied" : "Free"}
-          </p>
-          {table.reservation_id && (
-            <button
-              data-table-id-finish={table.table_id}
-              className="btn btn-danger"
-              onClick={() => finishHandler(table.table_id)}
-            >
-              Finish
-            </button>
-          )}
+        <div className="col">
+          <h4>Tables</h4>
+          {tables.map((table, index) => (
+            <div key={index} className="card my-2">
+              <div className="card-body">
+                <h5 className="card-title">{table.table_name}</h5>
+                <p className="card-text">Capacity: {table.capacity}</p>
+                <p className="card-text">Status: <span className="badge badge-secondary">{table.reservation_id ? "Occupied" : "Free"}</span></p>
+                {table.reservation_id && (
+                  <button className="btn btn-danger" onClick={() => finishHandler(table.table_id)}>Finish</button>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      <div className="date-navigation">
-        <button onClick={handlePreviousDay} className="btn btn-secondary">
-          Previous
-        </button>
-        <button onClick={handleToday} className="btn btn-primary">
-          Today
-        </button>
-        <button onClick={handleNextDay} className="btn btn-secondary">
-          Next
-        </button>
+      </div>
+      <div className="date-navigation btn-group my-3">
+        <button onClick={handlePreviousDay} className="btn btn-secondary">Previous</button>
+        <button onClick={handleToday} className="btn btn-primary">Today</button>
+        <button onClick={handleNextDay} className="btn btn-secondary">Next</button>
       </div>
     </main>
   );
-  }
+}
 
 export default Dashboard;
