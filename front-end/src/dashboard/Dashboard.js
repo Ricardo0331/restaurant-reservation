@@ -8,7 +8,7 @@ import {
 } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { today } from "../utils/date-time";
-import "./Dashboard.css"
+import "./Dashboard.css";
 
 function Dashboard() {
   const [reservations, setReservations] = useState([]);
@@ -124,17 +124,45 @@ function Dashboard() {
           {reservations.map((reservation, index) => (
             <div key={index} className="card my-2">
               <div className="card-body">
-                <h5 className="card-title">{reservation.first_name} {reservation.last_name}</h5>
+                <h5 className="card-title">
+                  {reservation.first_name} {reservation.last_name}
+                </h5>
                 <p className="card-text">Mobile: {reservation.mobile_number}</p>
-                <p className="card-text">Date: {reservation.reservation_date}</p>
-                <p className="card-text">Time: {reservation.reservation_time}</p>
+                <p className="card-text">
+                  Date: {reservation.reservation_date}
+                </p>
+                <p className="card-text">
+                  Time: {reservation.reservation_time}
+                </p>
                 <p className="card-text">Party Size: {reservation.people}</p>
-                <p className="card-text">Status: <span className="badge badge-secondary">{reservation.status}</span></p>
+                <p className="card-text">
+                  Status:{" "}
+                  <span className="badge badge-secondary">
+                    {reservation.status}
+                  </span>
+                </p>
                 {reservation.status === "booked" && (
                   <>
-                    <a href={`/reservations/${reservation.reservation_id}/seat`} className="btn btn-primary mr-2">Seat</a>
-                    <a href={`/reservations/${reservation.reservation_id}/edit`} className="btn btn-secondary mr-2">Edit</a>
-                    <button className="btn btn-danger" onClick={() => cancelReservationHandler(reservation.reservation_id)}>Cancel</button>
+                    <a
+                      href={`/reservations/${reservation.reservation_id}/seat`}
+                      className="btn btn-primary mr-2"
+                    >
+                      Seat
+                    </a>
+                    <a
+                      href={`/reservations/${reservation.reservation_id}/edit`}
+                      className="btn btn-secondary mr-2"
+                    >
+                      Edit
+                    </a>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() =>
+                        cancelReservationHandler(reservation.reservation_id)
+                      }
+                    >
+                      Cancel
+                    </button>
                   </>
                 )}
               </div>
@@ -148,20 +176,41 @@ function Dashboard() {
               <div className="card-body">
                 <h5 className="card-title">{table.table_name}</h5>
                 <p className="card-text">Capacity: {table.capacity}</p>
-                <p className="card-text">Status: <span className="badge badge-secondary">{table.reservation_id ? "Occupied" : "Free"}</span></p>
+                <p className="card-text">
+                  Status:{" "}
+                  <span className="badge badge-secondary">
+                    {table.reservation_id ? "Occupied" : "Free"}
+                  </span>
+                </p>
                 {table.reservation_id && (
-                  <button className="btn btn-danger" onClick={() => finishHandler(table.table_id)}>Finish</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => finishHandler(table.table_id)}
+                  >
+                    Finish
+                  </button>
                 )}
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="date-navigation btn-group my-3">
-        <button onClick={handlePreviousDay} className="btn btn-secondary">Previous</button>
-        <button onClick={handleToday} className="btn btn-primary">Today</button>
-        <button onClick={handleNextDay} className="btn btn-secondary">Next</button>
-      </div>
+      <div className="date-navigation text-center my-3">
+        <div className="btn-group" role="group" aria-label="Date navigation">
+          <button
+            onClick={handlePreviousDay}
+            className="btn btn-secondary mx-1"
+          >
+            Previous
+          </button>
+          <button onClick={handleToday} className="btn btn-primary mx-1">
+            Today
+          </button>
+          <button onClick={handleNextDay} className="btn btn-secondary mx-1">
+            Next
+          </button>
+        </div>
+      </div>{" "}
     </main>
   );
 }
